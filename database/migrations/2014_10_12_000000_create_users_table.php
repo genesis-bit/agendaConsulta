@@ -17,8 +17,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->unsignedBigInteger('tipo_user_id');
             $table->rememberToken();
             $table->timestamps();
+            $table->foreign('tipo_user_id')->references('id')->on('tipo_user');
         });
     }
 
