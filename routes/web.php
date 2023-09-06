@@ -17,8 +17,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/consulta', function () {
-    return view('consulta');
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/consulta',function () {
+        return view('consulta');
+    });
+    Route::get('/medico',function () {
+        return view('medico');
+    });
+    Route::get('/paciente',function () {
+        return view('paciente');
+    });
 });
 
 Route::get('/dashboard', function () {

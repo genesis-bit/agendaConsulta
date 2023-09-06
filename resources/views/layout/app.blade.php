@@ -22,7 +22,7 @@
                                     <i class="fas fa-fw fa-tachometer-alt"></i>
                                     <span>Menu Principal</span>
                                 </a>
-                            </li>   
+                            </li>  
                 <!-- Nav Item - Pages Collapse Menu -->
                             <li class="nav-item dropdpwn py-2  collapse-inner rounded">
                                 <a class="nav-link dropdown-toggle"  href="" id="navbarDropdown"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -62,17 +62,12 @@
                                     <span>Quartos</span>
                                 </a>
                             </li>
-                <!-- Nav Item - Sair-->
-                            <li class="nav-item">
-                                    <a class="btn btn-secondary btn-sm" href="" data-bs-toggle="modal" data-bs-target="#SairModal">
-                                        <i class='bx bx-log-out-circle'></i>
-                                        <span>Sair</span>
-                                    </a>
-                            </li>
+              
                     </ul><!-- end ul -->
                 </div><!-- end sidebar-menu -->
         </div> <!-- end sidebar -->
         <div class="main-content" id="main-content">  <!-- start main-content -->
+      
             <header class="flex">     <!-- start header -->
                 <h2>
                     <i class="bx bx-menu" id="menu-icon"></i>
@@ -81,8 +76,25 @@
                 <div class="admin-box flex">     <!-- start admin-box -->
                         <img src="{{Vite::asset('resources/imagen/Admin.png')}}" width="40px" height="40px" alt="">
                         <div>
-                            <h2>Fer Jose </h2>
-                            <small>Admin </small>
+                        
+                                <a class="nav-link dropdown-toggle" style="color: black" href="" id="navbarDropdown"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                   <span>{{ Auth::user()->name }} </span>  
+                                   <small>Admin </small>
+                                 </a> 
+                                  <ul class="dropdown-menu" aria-labelledby="navbar-Dropdown">
+                                     <li><a class="dropdown-item" href="">Profile</a></li>
+                                     <li>      
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf                    
+                                            <x-dropdown-link :href="route('logout')" class="dropdown-item"
+                                                 onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                                                      {{ __('Sair') }}
+                                            </x-dropdown-link>
+                                        </form>
+                                     </li>
+                                  </ul>
+                           
                         </div>
                 </div>                     <!-- end admin-box -->
             </header> <!-- end header -->

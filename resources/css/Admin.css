@@ -60,10 +60,9 @@
 .sidebar-menu ul li i{
     font-size: 18px;
 }
-.sidebar-menu ul li:is(:hover,:first-child){
+.sidebar-menu ul li:is(:hover){
     background-color: var(--text-white);
     color: var(--main-color);
-
 }
 
 .main-content{
