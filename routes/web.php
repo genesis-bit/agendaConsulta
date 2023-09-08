@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/paciente',function () {
         return view('paciente');
     });
+    Route::post('/paciente',function (Request $request) {
+        return  $request->all();
+    })->name('cadastrarP');
 });
 
 Route::get('/dashboard', function () {
