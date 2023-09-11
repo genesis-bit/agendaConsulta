@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PacienteController;
+use App\Models\paciente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +34,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/paciente',function (Request $request) {
         return  $request->all();
     })->name('cadastrarP');
+    Route::resource('paciente',PacienteController::class);
 });
 
 Route::get('/dashboard', function () {
