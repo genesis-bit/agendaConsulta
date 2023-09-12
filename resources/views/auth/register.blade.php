@@ -1,4 +1,7 @@
 <x-guest-layout>
+    <div class="items-center text-blue-600">
+        <h1>Sistema de Marcação de Consulta, Centro Ana Paula  </h1>   
+    </div>
     <form method="POST" action="{{ route('register') }}">
         @csrf
 

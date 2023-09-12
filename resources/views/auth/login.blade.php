@@ -1,6 +1,9 @@
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
+    <div class="items-center text-blue-600">
+        <h1>Sistema de Marcação de Consulta, Centro Ana Paula  </h1>   
+    </div>
 
     <form method="POST" action="{{ route('login') }}">
         @csrf

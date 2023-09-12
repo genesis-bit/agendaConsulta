@@ -16,7 +16,17 @@ class PacienteController extends Controller
      */
     public function index()
     {
-        //
+        try{
+            if(paciente::where('user_id',Auth::user()->id)->first())
+                return view('solicitar-consulta');
+            else        
+                return view('PacienteAdd');
+        
+ 
+         }
+         catch(Exception $e){
+             return response()->json($e->getMessage(), 400);
+         } 
     }
 
     /**
@@ -36,13 +46,15 @@ class PacienteController extends Controller
     {
         //
         try{
-            $paciente = new paciente();
+           /* $paciente = new paciente();
             $paciente->user_id = Auth::user()->id;
             $paciente->identificacao = $request->Identificacao;
             $paciente->ano_nascimento = $request->Ano;
             $paciente->genero_id = $request->genero_id;
             $paciente->telefone = $request->Telefone;       
-            return $paciente->save();
+            return $paciente->save() > 0 ? view('dashboard', ['nomeV'=>'Mario']): 2;*/
+            return  view('dashboard', ['nomeV'=>'Mario']);
+
         }
         catch(Exception $e){
             return response()->json($e->getMessage(), 400);
