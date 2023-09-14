@@ -1,20 +1,23 @@
 <section>
-        <header>
-            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                {{ __('Solicitar Consulta') }}
+        <header class="h-14 text-center text-lg bg-transparent font-bold">
+            <h2 class="text-sky-800">
+                Solicitar Consulta
             </h2>
         </header>
     
-        <form method="post" action="{{ route('paciente.store') }}" class="mt-6 space-y-6">
-            @csrf 
-            
-            <div class="col-lg-6">
-                <label for="Telefone" class="block font-medium text-sm text-gray-700 dark:text-gray-300" >Telefone</label>
-                <input type="text" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm mt-1 block w-full" name="Telefone" placeholder="" required>
-            </div>  
+        <form method="post"  class="mt-6 space-y-6 px-4 pb-3">
+            @csrf    
+      
+            <select class="form-select px-4 py-3 rounded-full">
+                <option >Seleciona o tipo de Consulta</option>
+                <option value="">Consulta 1</option>
+                <option value="">Consulta 2</option>
+            </select>
+
+            <input type="date" class="form-input px-4 py-3 rounded-full w-full" placeholder="Seleciona a Data">
 
             <div class="flex items-center gap-4">
-                <x-primary-button>{{ __('Save') }}</x-primary-button>
+                <x-primary-button>{{ __('Solicitar') }}</x-primary-button>
 
                 @if (session('status') === 'password-updated')
                     <p
