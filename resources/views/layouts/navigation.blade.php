@@ -10,7 +10,7 @@
                     </a>
                 </div>
 
-                <!-- Menu das rotas -->
+                <!-- Menu das rotas Paciente-->
                 @if (Auth::user()->tipo_user_id == 3)
                         <!-- Navigation Links -->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -24,7 +24,7 @@
                         </x-nav-link>
                     </div>
                  @endif
- <!-- Navigation Links -->
+                <!-- Menu das rotas Paciente -->
                  @if (Auth::user()->tipo_user_id == 2)                
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('paciente.index')" :active="request()->routeIs('paciente.index')">
@@ -37,7 +37,7 @@
                         </x-nav-link>
                     </div>
                 @endif
-                  <!-- Navigation Links -->
+                  <!-- Menu das rotas Admin -->
                 @if (Auth::user()->tipo_user_id == 1)                      
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('paciente.index')" :active="request()->routeIs('paciente.index')">
@@ -45,8 +45,13 @@
                         </x-nav-link>
                     </div>
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('paciente.index')" :active="request()->routeIs('rota1')">
-                            {{ __('Outras rota') }}
+                        <x-nav-link :href="route('paciente.index')" :active="request()->routeIs('medico.index')">
+                            {{ __('Medicos') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('paciente.index')" :active="request()->routeIs('paciente.index')">
+                            {{ __('Pacientes') }}
                         </x-nav-link>
                     </div>
                 @endif

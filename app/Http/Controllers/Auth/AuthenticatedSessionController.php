@@ -29,8 +29,8 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-      //  if(Auth::user()->tipo_user_id == 1)
-        //    return redirect()->intended(RouteServiceProvider::ADMIN);
+        if(Auth::user()->tipo_user_id == 1)
+            return redirect()->intended(RouteServiceProvider::ADMIN);
         return Auth::user()->tipo_user_id == 2?redirect()->intended(RouteServiceProvider::MEDICO):redirect()->intended(RouteServiceProvider::PACIENTE);
     }
 
