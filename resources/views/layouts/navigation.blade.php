@@ -10,17 +10,49 @@
                     </a>
                 </div>
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('paciente.index')" :active="request()->routeIs('paciente.index')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('paciente.index')" :active="request()->routeIs('rota1')">
-                        {{ __('Outra rota') }}
-                    </x-nav-link>
-                </div>
+                <!-- Menu das rotas -->
+                @if (Auth::user()->tipo_user_id == 3)
+                        <!-- Navigation Links -->
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('paciente.index')" :active="request()->routeIs('paciente.index')">
+                            {{ __('Paciente') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('paciente.index')" :active="request()->routeIs('rota1')">
+                            {{ __('Outra rota') }}
+                        </x-nav-link>
+                    </div>
+                 @endif
+ <!-- Navigation Links -->
+                 @if (Auth::user()->tipo_user_id == 2)                
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('paciente.index')" :active="request()->routeIs('paciente.index')">
+                            {{ __('Medico') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('paciente.index')" :active="request()->routeIs('rota1')">
+                            {{ __('Outras rota') }}
+                        </x-nav-link>
+                    </div>
+                @endif
+                  <!-- Navigation Links -->
+                @if (Auth::user()->tipo_user_id == 1)                      
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('paciente.index')" :active="request()->routeIs('paciente.index')">
+                            {{ __('Admin') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('paciente.index')" :active="request()->routeIs('rota1')">
+                            {{ __('Outras rota') }}
+                        </x-nav-link>
+                    </div>
+                @endif
+
+           
+
             </div>
 
             <!-- Settings Dropdown -->
