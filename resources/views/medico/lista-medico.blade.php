@@ -1,6 +1,6 @@
 <section>
     <div class="object-none object-right-bottom w-24"> <!-- start d-flex -->    
-              <button href="" class="btn btn-secondary rounded-full" role="button" data-bs-toggle="modal" data-bs-target="#Medicos"> Adicionar Consultas</button>
+              <button href="" class="btn btn-secondary rounded-full" role="button" data-bs-toggle="modal" data-bs-target="#Medicos"> Adicionar Medico</button>
     </div> <!-- end d-flex -->
       
     <div class ="table-responsive" > <!-- start conatiner -->   
@@ -28,7 +28,7 @@
                     <td>Consulta 1</td>
                     <td>Dr. Emanuel Pedro</td>
                     <td>10/10/2023</td>    
-                    <td>10h00</td>
+                    <td>10h0000</td>
                     <td>Em processamento</td>
                     <td>    
                         <button class="btn btn-success btn-sm editbtn" name="edit_btn"  id="editbtn"   data-bs-toggle="modal" data-bs-target="#mostrar">Mostrar</button>
@@ -44,7 +44,7 @@
     <div class="modal fade" id="Medicos" tabindex="-1" aria-labelledby="modallabel" aria-hidden="true">  <!-- start modal-adicionar-qualificações-->
         <div class="modal-dialog modal-dialog-centered ">
                 <div class="modal-content">
-                    @include('consulta.solicitar-consulta')
+                    @include('medico.add-medico')
                </div>
         </div>
     </div>   <!-- end modal-qualifica-adicionar -->

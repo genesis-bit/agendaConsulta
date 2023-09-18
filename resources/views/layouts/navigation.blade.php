@@ -24,7 +24,7 @@
                         </x-nav-link>
                     </div>
                  @endif
-                <!-- Menu das rotas Paciente -->
+                <!-- Menu das rotas medico -->
                  @if (Auth::user()->tipo_user_id == 2)                
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('paciente.index')" :active="request()->routeIs('paciente.index')">
@@ -45,7 +45,7 @@
                         </x-nav-link>
                     </div>
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('paciente.index')" :active="request()->routeIs('medico.index')">
+                        <x-nav-link :href="route('medico.index')" :active="request()->routeIs('medico.index')">
                             {{ __('Medicos') }}
                         </x-nav-link>
                     </div>

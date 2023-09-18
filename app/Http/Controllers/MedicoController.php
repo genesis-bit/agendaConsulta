@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\medico;
 use App\Http\Controllers\Controller;
+use Exception;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class MedicoController extends Controller
@@ -13,7 +15,17 @@ class MedicoController extends Controller
      */
     public function index()
     {
-        //
+        try{
+           /* if(medico::where('user_id',Auth::user()->id)->first())
+                return view('Medico');
+            else   */     
+                return view('Medico');
+        
+ 
+         }
+         catch(Exception $e){
+             return response()->json($e->getMessage(), 400);
+         } 
     }
 
     /**
@@ -29,7 +41,12 @@ class MedicoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            return $request;
+        }
+        catch(Exception $e){
+            return response()->json($e->getMessage(), 400);
+        }
     }
 
     /**

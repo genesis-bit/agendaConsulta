@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PacienteController;
-use App\Models\paciente;
+use App\Http\Controllers\MedicoController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,8 +21,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::middleware(['auth', 'verified'])->group(function () {   
-    Route::resource('paciente',PacienteController::class);
+Route::middleware(['auth', 'verified'])->group(function () { 
+    Route::post('/user/medico', [RegisteredUserController::class, 'storeMedico'])->name('medico.add'); 
+    Route::resources([
+        'paciente'=>PacienteController::class,
+        'medico'=>MedicoController::class
+    ]);
 });
 
 Route::middleware('auth')->group(function () {

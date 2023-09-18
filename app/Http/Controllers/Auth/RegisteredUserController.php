@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use Exception;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -48,5 +49,29 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
+    }
+    public function storeMedico(Request $request)
+    {
+        try{
+                $request->validate([
+                    'name' => ['required', 'string', 'max:255'],
+                    'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class]
+                ]);
+
+                $user = User::create([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'tipo_user_id' => 2,
+                    'password' => Hash::make('1234'),
+                ]);
+
+                event(new Registered($user));
+
+                return view('Medico');  
+        }
+        catch(Exception $e){
+            return response()->json($e->getMessage(), 400);
+        }
+       
     }
 }
