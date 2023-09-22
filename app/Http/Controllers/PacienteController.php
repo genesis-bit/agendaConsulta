@@ -46,15 +46,13 @@ class PacienteController extends Controller
     {
         //
         try{
-           /* $paciente = new paciente();
+           $paciente = new paciente();
             $paciente->user_id = Auth::user()->id;
             $paciente->identificacao = $request->Identificacao;
             $paciente->ano_nascimento = $request->Ano;
             $paciente->genero_id = $request->genero_id;
             $paciente->telefone = $request->Telefone;       
-            return $paciente->save() > 0 ? view('dashboard', ['nomeV'=>'Mario']): 2;*/
-            return  view('dashboard', ['nomeV'=>'Mario']);
-
+            return $paciente->save() > 0 ? redirect()->route('paciente.index'): '';
         }
         catch(Exception $e){
             return response()->json($e->getMessage(), 400);

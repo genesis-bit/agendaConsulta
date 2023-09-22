@@ -1,11 +1,11 @@
-<section>
-    <header>
-        <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+<section class="">
+    <header class="h-12 text-center text-lg bg-transparent font-bold">
+        <h2 class="text-lg font-medium text-gray-900">
             {{ __('Terminar Processo de Cadastramento') }}
         </h2>
     </header>
 
-    <form method="post" action="{{ route('paciente.store') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('paciente.store') }}" class="mt-6 space-y-6 justify-center">
         @csrf 
         <div class="col-lg-6">
             <label for="Identificacao" class="block font-medium text-sm text-gray-700 dark:text-gray-300" >Identificacao</label>

@@ -6,7 +6,9 @@ use App\Models\medico;
 use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules;
 
 class MedicoController extends Controller
 {
@@ -16,12 +18,11 @@ class MedicoController extends Controller
     public function index()
     {
         try{
-           /* if(medico::where('user_id',Auth::user()->id)->first())
+            if(medico::where('user_id',Auth::user()->id)->first())
                 return view('Medico');
-            else   */     
-                return view('Medico');
-        
- 
+            else
+                return view('MedicoAdd');
+             
          }
          catch(Exception $e){
              return response()->json($e->getMessage(), 400);
@@ -42,7 +43,19 @@ class MedicoController extends Controller
     public function store(Request $request)
     {
         try{
-            return $request;
+            $request->validate([
+                'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            ]);
+            
+            $medico = new medico();
+            $medico->user_id = Auth::user()->id;
+            $medico->identificacao = $request->Identificacao;
+            $medico->ano_nascimento = $request->Ano;
+            $medico->genero_id = $request->genero_id;
+            $medico->telefone = $request->Telefone;  
+            $medico->especialidade_id = $request->especialidade_id;      
+            $medico->save()>0?$request->user()->update(['password' => Hash::make($request->password)]):"";
+            return redirect()->route('medico.index');
         }
         catch(Exception $e){
             return response()->json($e->getMessage(), 400);

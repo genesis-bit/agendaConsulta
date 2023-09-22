@@ -1,5 +1,5 @@
 <section>
-    <div class="object-none object-right-bottom w-24"> <!-- start d-flex -->    
+    <div class="object-none object-right-bottom w-24 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 " > <!-- start d-flex -->    
               <button href="" class="btn btn-secondary rounded-full" role="button" data-bs-toggle="modal" data-bs-target="#Medicos"> Adicionar Medico</button>
     </div> <!-- end d-flex -->
       
