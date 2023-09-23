@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\paciente;
+use App\Models\genero;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Exception;
@@ -17,12 +18,12 @@ class PacienteController extends Controller
     public function index()
     {
         try{
-            if(paciente::where('user_id',Auth::user()->id)->first())
+           if(paciente::where('user_id',Auth::user()->id)->first())
                 return view('solicitar-consulta');
-            else        
-                return view('PacienteAdd');
-        
- 
+            else{
+                $genero = genero::all();   
+                return view('PacienteAdd',['genero' => $genero]);
+            }       
          }
          catch(Exception $e){
              return response()->json($e->getMessage(), 400);

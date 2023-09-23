@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\MedicoController;
+use App\Http\Controllers\EspecialidadeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Http\Request;
@@ -27,7 +28,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/user/medico', [RegisteredUserController::class, 'storeMedico'])->name('medico.add'); 
     Route::resources([
         'paciente'=>PacienteController::class,
-        'medico'=>MedicoController::class
+        'medico'=>MedicoController::class,
+        'especialidade'=>EspecialidadeController::class
     ]);
 });
 

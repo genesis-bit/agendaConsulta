@@ -9,7 +9,7 @@
             <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 bg-white">
                     <div class="p-4 sm:p-8 shadow bg-white sm:rounded-lg max-w">                       
-                            @include('paciente.add-paciente')                     
+                            @include('paciente.add-paciente',$genero)                     
                     </div>
                 </div>
             </div>

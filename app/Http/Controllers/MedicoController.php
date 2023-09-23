@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\medico;
+use App\Models\genero;
+use App\Models\especialidade;
 use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Support\Facades\Auth;
@@ -18,10 +20,14 @@ class MedicoController extends Controller
     public function index()
     {
         try{
-            if(medico::where('user_id',Auth::user()->id)->first())
+            if(medico::where('user_id',Auth::user()->id)->first() || Auth::user()->tipo_user_id == 1)
                 return view('Medico');
-            else
-                return view('MedicoAdd');
+            else{
+                $genero = genero::all();
+                $especialidade = especialidade::all();
+                return view('MedicoAdd', ['genero' => $genero, 'especialidade' => $especialidade]);
+            }
+                
              
          }
          catch(Exception $e){
