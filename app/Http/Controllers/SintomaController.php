@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\especialidade;
+use App\Models\sintoma;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class EspecialidadeController extends Controller
+class SintomaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,8 @@ class EspecialidadeController extends Controller
     {
         try{
             if(Auth::user()->tipo_user_id == 1){
-                $especialidade = especialidade::all();
-                return view('manutenco');
-                //return view('Especialidade',['especialidade'=>$especialidade]);
+                $sintomas = sintoma::all();
+                return view('Sintoma',['sintomas'=>$sintomas]);
             }
                 
             else{
@@ -44,11 +43,10 @@ class EspecialidadeController extends Controller
      */
     public function store(Request $request)
     {
-        try{
-            
-            $especialidade = new especialidade();
-            $especialidade->descricao = $request->descricao;              
-            return  $especialidade->save()>0?redirect()->route('especialidade.index'):'';
+        try{            
+            $sintoma = new sintoma();
+            $sintoma->descricao = $request->descricao;              
+            return  $sintoma->save()>0?redirect()->route('sintoma.index'):'';
         }
         catch(Exception $e){
             return response()->json($e->getMessage(), 400);
@@ -58,7 +56,7 @@ class EspecialidadeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(especialidade $especialidade)
+    public function show(sintoma $sintoma)
     {
         //
     }
@@ -66,7 +64,7 @@ class EspecialidadeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(especialidade $especialidade)
+    public function edit(sintoma $sintoma)
     {
         //
     }
@@ -74,7 +72,7 @@ class EspecialidadeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, especialidade $especialidade)
+    public function update(Request $request, sintoma $sintoma)
     {
         //
     }
@@ -82,7 +80,7 @@ class EspecialidadeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(especialidade $especialidade)
+    public function destroy(sintoma $sintoma)
     {
         //
     }

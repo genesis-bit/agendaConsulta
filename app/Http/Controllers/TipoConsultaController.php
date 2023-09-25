@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\especialidade;
+use App\Models\tipoConsulta;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class EspecialidadeController extends Controller
+class TipoConsultaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,8 @@ class EspecialidadeController extends Controller
     {
         try{
             if(Auth::user()->tipo_user_id == 1){
-                $especialidade = especialidade::all();
-                return view('manutenco');
-                //return view('Especialidade',['especialidade'=>$especialidade]);
+                $tipoConsulta = tipoConsulta::all();
+                return view('tipoConsulta',['tipoConsulta'=>$tipoConsulta]);
             }
                 
             else{
@@ -44,11 +43,10 @@ class EspecialidadeController extends Controller
      */
     public function store(Request $request)
     {
-        try{
-            
-            $especialidade = new especialidade();
-            $especialidade->descricao = $request->descricao;              
-            return  $especialidade->save()>0?redirect()->route('especialidade.index'):'';
+        try{            
+            $tipoConsulta = new tipoConsulta();
+            $tipoConsulta->descricao = $request->descricao;              
+            return  $tipoConsulta->save()>0?redirect()->route('tipoConsulta.index'):'';
         }
         catch(Exception $e){
             return response()->json($e->getMessage(), 400);
@@ -58,7 +56,7 @@ class EspecialidadeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(especialidade $especialidade)
+    public function show(tipoConsulta $tipoConsulta)
     {
         //
     }
@@ -66,7 +64,7 @@ class EspecialidadeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(especialidade $especialidade)
+    public function edit(tipoConsulta $tipoConsulta)
     {
         //
     }
@@ -74,7 +72,7 @@ class EspecialidadeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, especialidade $especialidade)
+    public function update(Request $request, tipoConsulta $tipoConsulta)
     {
         //
     }
@@ -82,7 +80,7 @@ class EspecialidadeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(especialidade $especialidade)
+    public function destroy(tipoConsulta $tipoConsulta)
     {
         //
     }

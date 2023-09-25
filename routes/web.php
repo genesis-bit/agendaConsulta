@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\EspecialidadeController;
+use App\Http\Controllers\TipoConsultaController;
+use App\Http\Controllers\SintomaController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Http\Request;
@@ -29,7 +31,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resources([
         'paciente'=>PacienteController::class,
         'medico'=>MedicoController::class,
-        'especialidade'=>EspecialidadeController::class
+        'especialidade'=>EspecialidadeController::class,
+        'tipoConsulta'=>TipoConsultaController::class,
+        'sintoma'=>SintomaController::class
     ]);
 });
 
