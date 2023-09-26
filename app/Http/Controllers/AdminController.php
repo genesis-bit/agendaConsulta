@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\paciente;
+use App\Models\tipoConsulta;
+use App\Models\sintoma;
+use App\Models\especialidade;
 use App\Models\User;
 use App\Models\genero;
+use Illuminate\Support\Facades\Auth;
+use Exception;
 
 
 use App\Http\Controllers\Controller;
@@ -17,8 +22,51 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $dados = paciente::with(['user', 'genero'])->get();
-        return view('Admin',['pacientes' => $dados]);        
+        try{
+            $dados = paciente::with(['user', 'genero'])->get();
+            return view('Admin',['pacientes' => $dados]); 
+        }
+        catch(Exception $e){
+            return response()->json($e->getMessage(), 400);
+        } 
+               
+    }
+
+    public function manuntencao()
+    {
+        try{
+            if(Auth::user()->tipo_user_id == 1){
+                $especialidade = especialidade::all();
+                $tipoconsulta = tipoConsulta::all();
+                $sintomas = sintoma::all();
+                return view('manutencao',['especialidade'=>$especialidade,'tipoConsulta'=>$tipoconsulta,'sintomas'=>$sintomas]);
+            }                
+            else{
+                return "Não és Admin";
+            }        
+            
+        }
+        catch(Exception $e){
+            return response()->json($e->getMessage(), 400);
+        } 
+    }
+    public function abcd(string $status)
+    {
+        try{
+            if(Auth::user()->tipo_user_id == 1){
+                $especialidade = especialidade::all();
+                $tipoconsulta = tipoConsulta::all();
+                $sintomas = sintoma::all();
+                return view('manutencao',['especialidade'=>$especialidade,'tipoConsulta'=>$tipoconsulta,'sintomas'=>$sintomas, 'status'=>$status]);
+            }                
+            else{
+                return "Não és Admin";
+            }        
+            
+        }
+        catch(Exception $e){
+            return response()->json($e->getMessage(), 400);
+        } 
     }
 
     /**

@@ -6,6 +6,7 @@ use App\Models\especialidade;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AdminController;
 
 class EspecialidadeController extends Controller
 {
@@ -14,11 +15,14 @@ class EspecialidadeController extends Controller
      */
     public function index()
     {
+        return redirect()->action(
+            [AdminController::class, 'abcd'], ['status' =>'Especialidade']
+        );
+        /*
         try{
             if(Auth::user()->tipo_user_id == 1){
                 $especialidade = especialidade::all();
-                return view('manutenco');
-                //return view('Especialidade',['especialidade'=>$especialidade]);
+                return view('Especialidade',['especialidade'=>$especialidade]);
             }
                 
             else{
@@ -29,7 +33,7 @@ class EspecialidadeController extends Controller
         catch(Exception $e){
             return response()->json($e->getMessage(), 400);
         } 
-    }
+    */}
 
     /**
      * Show the form for creating a new resource.
@@ -48,7 +52,7 @@ class EspecialidadeController extends Controller
             
             $especialidade = new especialidade();
             $especialidade->descricao = $request->descricao;              
-            return  $especialidade->save()>0?redirect()->route('especialidade.index'):'';
+            return  $especialidade->save()>0?redirect()->route('manuntencao',['status'=>"Especialidade Adicianado com sucesso"]):'';
         }
         catch(Exception $e){
             return response()->json($e->getMessage(), 400);

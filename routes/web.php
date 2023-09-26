@@ -27,6 +27,7 @@ Route::get('/', function () {
 });
 Route::middleware(['auth', 'verified'])->group(function () { 
     Route::get('/admin', [AdminController::class,'index'])->name('admin'); 
+    Route::get('/manuntencao', [AdminController::class,'manuntencao'])->name('manuntencao'); 
     Route::post('/user/medico', [RegisteredUserController::class, 'storeMedico'])->name('medico.add'); 
     Route::resources([
         'paciente'=>PacienteController::class,

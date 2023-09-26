@@ -32,6 +32,7 @@
             <main>
                 {{ $slot }}
             </main>
+            
         </div>
         @vite(['resources/js/app.js','resources/js/bootstrap.bundle.min.js','resources/js/jquery.min.js','resources/js/dataTables.bootstrap.min.js'])
     </body>

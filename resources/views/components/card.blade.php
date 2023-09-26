@@ -20,7 +20,7 @@
 </div>
 <div class="modal fade" id="{{$modal2}}" tabindex="-1" aria-labelledby="modallabel" aria-hidden="true">  <!-- start modal-adicionar-qualificações-->
     <div class="modal-dialog modal-dialog-centered ">
-            <div class="modal-content">
+            <div class="modal-content px-1">
                  {{$data_modal2}}
            </div>
     </div>
