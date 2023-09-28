@@ -31,10 +31,10 @@
                     <td>10h0000</td>
                     <td>Em processamento</td>
                     <td>    
-                        <button class="btn btn-success btn-sm editbtn" name="edit_btn"  id="editbtn"   data-bs-toggle="modal" data-bs-target="#mostrar">Mostrar</button>
+                        <button class="btn btn-success btn-sm editbtn" name="edit_btn"  id="editbtn"   data-bs-toggle="modal" data-bs-target="#mostrar"><i class="fa-solid fa-pen-to-square fa-lg"></i></button>
                     </td>
                     <td>
-                        <button class="btn btn-danger  btn-sm" href=""  data-bs-toggle="modal" data-bs-target="#apagar">Anular</button>
+                        <button class="btn btn-danger btn-sm" href=""  data-bs-toggle="modal" data-bs-target="#apagar"><i class="fa-solid fa-trash fa-lg"></i></button>
                     </td>    
                 </tr>
             </tbody>    

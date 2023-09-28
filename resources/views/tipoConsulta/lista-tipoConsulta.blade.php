@@ -26,10 +26,10 @@
                             <td>{{$tc->id}}</td>
                             <td>{{$tc->descricao}}</td>
                             <td>    
-                                <button class="btn btn-success btn-sm editbtn" name="edit_btn"  id="editbtn"   data-bs-toggle="modal" data-bs-target="#mostrar">Editar</button>
+                                <button class="btn bg-green-600 hover:bg-green-900 btn-sm editbtn" name="edit_btn"  id="editbtn"   data-bs-toggle="modal" data-bs-target="#mostrar"><i class="fa-solid fa-pen-to-square fa-lg"></i></button>
                             </td>
                             <td>
-                                <button class="btn btn-danger  btn-sm" href=""  data-bs-toggle="modal" data-bs-target="#apagar">Apagar</button>
+                                <button class="btn btn-sm bg-red-600 hover:bg-red-900" href=""  data-bs-toggle="modal" data-bs-target="#apagar"><i class="fa-solid fa-trash fa-lg "></i></button>
                             </td> 
                         </tr>
                     @endforeach 
