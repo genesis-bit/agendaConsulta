@@ -46,7 +46,7 @@
                     </div>
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('medico.index')" :active="request()->routeIs('medico.index')">
-                            {{ __('Medicos') }}
+                           <span><i class="fa-solid fa-user-doctor"> </i></span> {{ __('Medicos') }}
                         </x-nav-link>
                     </div>
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">

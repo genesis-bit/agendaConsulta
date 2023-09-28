@@ -1,6 +1,6 @@
 <section>
     <div class="object-none object-right-bottom w-24 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 " > <!-- start d-flex -->    
-              <button href="" class="btn btn-secondary rounded-full" role="button" data-bs-toggle="modal" data-bs-target="#Medicos"> Adicionar Medico</button>
+              <button href="" class="btn btn-secondary rounded-full" role="button" data-bs-toggle="modal" data-bs-target="#Medicos"> <i class="fa-solid fa-circle-plus"></i>Add Medico</button>
     </div> <!-- end d-flex -->
       
     <div class ="table-responsive" > <!-- start conatiner -->   

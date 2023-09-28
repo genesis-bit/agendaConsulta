@@ -4,9 +4,9 @@
         <div class="h-40 ">
             <h2 class="title text-black">{{$titulo}}</h2>
             <hr><br>
-            <button class="btn btn-secondary rounded-full hover:bg-green-800" role="button" data-bs-toggle="modal" data-bs-target="#{{$modal1}}">{{$btn1}}</button>
+            <button class="btn btn-secondary rounded-full hover:bg-green-800" role="button" data-bs-toggle="modal" data-bs-target="#{{$modal1}}"><i class="fa-solid fa-circle-plus"></i> {{$btn1}}</button>
             <br><br>
-            <button class="btn btn-primary rounded-full hover:bg-green-800" role="button" data-bs-toggle="modal" data-bs-target="#{{$modal2}}">{{$btn2}}</button>
+            <button class="btn btn-primary rounded-full hover:bg-green-800" role="button" data-bs-toggle="modal" data-bs-target="#{{$modal2}}"><i class="fa-solid fa-list" style="color: #183a39;"></i> {{$btn2}}</button>
         </div>
       
 </div> 

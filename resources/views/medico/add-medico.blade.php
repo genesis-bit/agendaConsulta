@@ -1,7 +1,7 @@
 <section>
     <header class="h-14 text-center text-lg bg-transparent font-bold">
         <h2 class="text-sky-800">
-            Adicionar Medico
+           Adicionar Medico
         </h2>
     </header>
 
