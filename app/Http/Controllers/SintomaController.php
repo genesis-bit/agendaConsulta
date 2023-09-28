@@ -46,7 +46,7 @@ class SintomaController extends Controller
         try{            
             $sintoma = new sintoma();
             $sintoma->descricao = $request->descricao;              
-            return  $sintoma->save()>0?redirect()->route('sintoma.index'):'';
+            return  $sintoma->save()>0?redirect()->route('manuntencao')->with('statuss', 'Sintoma Adicianado com sucesso'):'';
         }
         catch(Exception $e){
             return response()->json($e->getMessage(), 400);

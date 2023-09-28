@@ -15,10 +15,10 @@ class EspecialidadeController extends Controller
      */
     public function index()
     {
-        return redirect()->action(
-            [AdminController::class, 'abcd'], ['status' =>'Especialidade']
-        );
-        /*
+    
+       
+       
+         /*;
         try{
             if(Auth::user()->tipo_user_id == 1){
                 $especialidade = especialidade::all();
@@ -49,11 +49,10 @@ class EspecialidadeController extends Controller
     public function store(Request $request)
     {
         try{
-            
             $especialidade = new especialidade();
             $especialidade->descricao = $request->descricao;              
-            return  $especialidade->save()>0?redirect()->route('manuntencao',['status'=>"Especialidade Adicianado com sucesso"]):'';
-        }
+            return  $especialidade->save()>0?redirect()->route('manuntencao')->with('statuss', 'Especialidade Adicianado com sucesso'):'';
+         }
         catch(Exception $e){
             return response()->json($e->getMessage(), 400);
         }

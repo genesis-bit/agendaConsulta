@@ -46,7 +46,7 @@ class TipoConsultaController extends Controller
         try{            
             $tipoConsulta = new tipoConsulta();
             $tipoConsulta->descricao = $request->descricao;              
-            return  $tipoConsulta->save()>0?redirect()->route('tipoConsulta.index'):'';
+            return  $tipoConsulta->save()>0?redirect()->route('manuntencao')->with('statuss', 'Tipo Consulta Adicianado com sucesso'):'';
         }
         catch(Exception $e){
             return response()->json($e->getMessage(), 400);

@@ -50,24 +50,6 @@ class AdminController extends Controller
             return response()->json($e->getMessage(), 400);
         } 
     }
-    public function abcd(string $status)
-    {
-        try{
-            if(Auth::user()->tipo_user_id == 1){
-                $especialidade = especialidade::all();
-                $tipoconsulta = tipoConsulta::all();
-                $sintomas = sintoma::all();
-                return view('manutencao',['especialidade'=>$especialidade,'tipoConsulta'=>$tipoconsulta,'sintomas'=>$sintomas, 'status'=>$status]);
-            }                
-            else{
-                return "Não és Admin";
-            }        
-            
-        }
-        catch(Exception $e){
-            return response()->json($e->getMessage(), 400);
-        } 
-    }
 
     /**
      * Show the form for creating a new resource.

@@ -34,11 +34,11 @@
                 </div>
             </div>
         </div>
-        @if (isset($status))
-        <div class="bg-green-300 w-20 h-20 absolute bottom-10 right-10 " x-data="{ show: true }"
-             x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)">
-             
-        </div>
+        @if (session()->has('statuss'))
+            <div class="absolute bottom-10 right-10 " x-data="{ show: true }"
+                x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)">
+                <button class="btn btn-primary rounded-md h-16 bg-green-800" >{{session('statuss')}}</button>            
+            </div>
         @endif
     </div>
 
