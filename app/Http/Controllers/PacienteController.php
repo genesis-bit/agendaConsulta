@@ -21,6 +21,8 @@ class PacienteController extends Controller
            if(paciente::where('user_id',Auth::user()->id)->first())
                 return view('solicitar-consulta');
             else{
+                if(Auth::user()->tipo_user_id == 2)
+                    return "rota invalida";
                 $genero = genero::all();   
                 return view('PacienteAdd',['genero' => $genero]);
             }       

@@ -6,6 +6,7 @@ use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\EspecialidadeController;
 use App\Http\Controllers\TipoConsultaController;
 use App\Http\Controllers\SintomaController;
+use App\Http\Controllers\TempoLivreController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Http\Request;
@@ -26,6 +27,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::middleware(['auth', 'verified'])->group(function () { 
+    Route::get('/agenda', function () {
+        return view('tempoLivre');
+    })->name('agenda');
+
     Route::get('/admin', [AdminController::class,'index'])->name('admin'); 
     Route::get('/manuntencao', [AdminController::class,'manuntencao'])->name('manuntencao'); 
     Route::get('/manuntencaoStatus', [AdminController::class,'manuntencaoStatus'])->name('manuntencaoStatus'); 
@@ -35,7 +40,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         'medico'=>MedicoController::class,
         'especialidade'=>EspecialidadeController::class,
         'tipoConsulta'=>TipoConsultaController::class,
-        'sintoma'=>SintomaController::class
+        'sintoma'=>SintomaController::class,
+        'agendaa'=>TempoLivreController::class
     ]);
 });
 
