@@ -9,7 +9,7 @@
             <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 bg-white">
                     <div class="p-4 sm:p-8 shadow bg-white sm:rounded-lg max-w">                       
-                            @include('tempoLivre.lista-tempoLivre')                     
+                            @include('tempoLivre.lista-tempoLivre',$agenda)                     
                     </div>
                 </div>
             </div>

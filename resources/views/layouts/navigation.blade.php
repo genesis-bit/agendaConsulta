@@ -32,7 +32,7 @@
                         </x-nav-link>
                     </div>
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('agenda')" :active="request()->routeIs('agenda')">
+                        <x-nav-link :href="route('agenda.index')" :active="request()->routeIs('agenda.index')">
                             {{ __('Agenda') }}
                         </x-nav-link>
                     </div>
